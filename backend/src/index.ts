@@ -3,16 +3,20 @@ const cors = require('cors');
 const dbconnection = require('../dbConfig/dbconnect')
 import { productRouter } from "./routes/products";
 import { userRouter } from "./routes/user";
+import { transactionsRouter } from "./routes/transactions";
+import { keycoversRouter } from "./routes/keycovers";
 
 
 const app = express();
-const port = 3001;
+const port = 4001;
 
 
 app.use(express.json())
 app.use(cors())  //Allows us to acces our API from the frontend
 app.use('/user',userRouter)
 app.use('/products',productRouter)
+app.use('/keycovers',keycoversRouter)
+app.use('/transactions',transactionsRouter)
 
 
 // Connect to DB and then start the server
